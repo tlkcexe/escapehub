@@ -1,0 +1,21 @@
+name: PR checks
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+jobs:
+  pr-has-issue:
+    name: pr-has-issue
+    runs-on: ubuntu-latest
+    steps:
+      - name: Το PR πρέπει να συνδέεται με issue (Closes #N)
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          if echo "$PR_BODY" | grep -qiE '(closes|fixes|resolves) #[0-9]+'; then
+            echo "OK: βρέθηκε σύνδεση με issue."
+          else
+            echo "ΣΦΑΛΜΑ: Πρόσθεσε 'Closes #<αριθμός issue>' στην περιγραφή του PR."
+            exit 1
+          fi

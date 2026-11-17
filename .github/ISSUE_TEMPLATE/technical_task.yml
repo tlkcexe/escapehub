@@ -1,0 +1,28 @@
+name: Τεχνική εργασία
+description: Εργασία χωρίς user story (setup, tests, τεκμηρίωση, ADR κλπ.)
+title: "TASK: "
+labels: ["task"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Περιγραφή
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: Πότε θεωρείται ολοκληρωμένη
+      placeholder: |
+        - [ ] ...
+    validations:
+      required: true
+  - type: input
+    id: related
+    attributes:
+      label: Σχετικό story / απαίτηση
+      placeholder: US-04, NFR-07
+  - type: input
+    id: owner
+    attributes:
+      label: Owner (GitHub username)

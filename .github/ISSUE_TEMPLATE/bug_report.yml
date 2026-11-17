@@ -1,0 +1,36 @@
+name: Σφάλμα (bug)
+description: Κάτι δεν λειτουργεί όπως αναμένεται
+title: "BUG: "
+labels: ["bug"]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Έκδοση / commit
+      description: Από το /actuator/info ή από το tag.
+  - type: textarea
+    id: steps
+    attributes:
+      label: Βήματα αναπαραγωγής
+      placeholder: |
+        1. ...
+        2. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Αναμενόμενο αποτέλεσμα
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Πραγματικό αποτέλεσμα
+    validations:
+      required: true
+  - type: input
+    id: story
+    attributes:
+      label: Σχετικό story / σενάριο
+      placeholder: US-23, SC-04

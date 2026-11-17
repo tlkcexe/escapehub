@@ -1,0 +1,59 @@
+name: User story
+description: Νέο user story του product backlog
+title: "US-XX: "
+labels: ["user-story"]
+body:
+  - type: input
+    id: story_id
+    attributes:
+      label: Κωδικός story (από το xlsx)
+      placeholder: US-14
+    validations:
+      required: true
+  - type: textarea
+    id: story
+    attributes:
+      label: Ιστορία χρήστη
+      description: "Ως … θέλω … ώστε …"
+    validations:
+      required: true
+  - type: textarea
+    id: criteria
+    attributes:
+      label: Κριτήρια αποδοχής
+      description: Μία γραμμή ανά κριτήριο, ελέγξιμα.
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
+  - type: dropdown
+    id: sprint
+    attributes:
+      label: Sprint
+      options: ["0", "1", "2", "3", "4"]
+    validations:
+      required: true
+  - type: input
+    id: epic
+    attributes:
+      label: Θέμα (epic)
+      placeholder: Χρήστες και ομάδες
+  - type: input
+    id: requirement
+    attributes:
+      label: Απαίτηση
+      placeholder: FR-01, NFR-09
+  - type: dropdown
+    id: estimate
+    attributes:
+      label: Εκτίμηση (story points)
+      options: ["1", "2", "3", "5", "8", "13"]
+    validations:
+      required: true
+  - type: input
+    id: owner
+    attributes:
+      label: Owner (GitHub username)
+    validations:
+      required: true
