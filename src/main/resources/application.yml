@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: escapehub
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/escapehub}
+    username: ${DB_USER:escapehub}
+    password: ${DB_PASSWORD:escapehub}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  info:
+    git:
+      mode: full
+    build:
+      enabled: true
