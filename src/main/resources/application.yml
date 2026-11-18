@@ -17,6 +17,6 @@ management:
         include: health,info
   info:
     git:
-      mode: full
+      enabled: false
     build:
-      enabled: true
+      enabled: false
