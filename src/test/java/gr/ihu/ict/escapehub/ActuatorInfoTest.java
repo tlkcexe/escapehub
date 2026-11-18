@@ -19,9 +19,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
                 "org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration," +
                 "org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration",
         "management.endpoints.web.exposure.include=health,info",
-        "management.info.git.enabled=true",
+        "management.info.git.enabled=false",
         "management.info.git.mode=full",
-        "management.info.build.enabled=true"
+        "management.info.build.enabled=false"
 })
 @AutoConfigureMockMvc
 class ActuatorInfoTest {
@@ -42,12 +42,15 @@ class ActuatorInfoTest {
         mockMvc.perform(get("/actuator/info"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath(
-                        "$.build.version",
+                        "$.version",
                         is(buildProperties.getVersion())
                 ))
                 .andExpect(jsonPath(
-                        "$.git.commit.id.full",
+                        "$.commit",
                         is(gitProperties.getCommitId())
-                ));
+                ))
+                .andExpect(jsonPath("$.git").doesNotExist())
+                .andExpect(jsonPath("$.build").doesNotExist());
+
     }
 }
