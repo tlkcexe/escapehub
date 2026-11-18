@@ -27,7 +27,7 @@
 Η εφαρμογή μαζί με τη βάση δεδομένων PostgreSQL μπορούν να εκτελεστούν τοπικά μέσω Docker Compose:
 
 ```bash
-docker compose up --build
+docker compose up
 ```
 
 Μετά την εκκίνηση, ο έλεγχος υγείας είναι διαθέσιμος στο `http://localhost:8080/actuator/health`.
