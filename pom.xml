@@ -13,7 +13,7 @@
 
     <groupId>gr.ihu.ict</groupId>
     <artifactId>escapehub</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>0.1.0</version>
     <name>EscapeHub</name>
     <description>Πλατφόρμα συνεργατικών αποστολών μυστηρίου (escape-room) με ανοιχτά δεδομένα</description>
 
