@@ -12,6 +12,7 @@
 ### Added
 - Αρχικά αρχεία αποθετηρίου: README, CONTRIBUTING, PR/issue templates, Definition of Done,
   AI usage log, πρότυπο ADR και βασικό CI workflow (US-01, US-02).
+- Προσθήκη `Dockerfile` (multi-stage build), `.dockerignore`, `docker-compose.yml` (με PostgreSQL) και GitHub Actions workflow (`release.yml`) για αυτόματο publish Docker image στο GHCR και GitHub Releases (US-05).
 
 <!-- Προγραμματισμένες εκδόσεις: v0.1.0 (Sprint 0), v0.2.0 (Sprint 1), v0.3.0 (Sprint 2),
      v0.4.0 (Sprint 3), v1.0.0 (Sprint 4) -->
