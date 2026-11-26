@@ -1,0 +1,33 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: escapehub-db
+    environment:
+      POSTGRES_DB: ${DB_NAME:-escapehub}
+      POSTGRES_USER: ${DB_USER:-escapehub}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-escapehub}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-escapehub} -d ${DB_NAME:-escapehub}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  app:
+    image: ghcr.io/tlkcexe/escapehub:${IMAGE_TAG:-latest}
+    container_name: escapehub-app
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/${DB_NAME:-escapehub}
+      DB_USER: ${DB_USER:-escapehub}
+      DB_PASSWORD: ${DB_PASSWORD:-escapehub}
+    ports:
+      - "8080:8080"
+
+volumes:
+  postgres_data:

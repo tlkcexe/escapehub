@@ -22,7 +22,25 @@
 
 ## Εγκατάσταση και εκτέλεση
 
-_Θα συμπληρωθεί όταν υπάρξει το project skeleton (US-03) και το Docker image (US-05)._
+### Εκτέλεση με Docker
+
+Η εφαρμογή μαζί με τη βάση δεδομένων PostgreSQL μπορούν να εκτελεστούν τοπικά μέσω Docker Compose:
+
+```bash
+docker compose up
+```
+
+Μετά την εκκίνηση, ο έλεγχος υγείας είναι διαθέσιμος στο `http://localhost:8080/actuator/health`.
+
+Για τερματισμό των containers:
+
+```bash
+docker compose down
+```
+
+### Docker Image & Releases
+
+Σε κάθε push νέου version tag (`v*.*.*`), το GitHub Actions workflow (`release.yml`) εκτελεί αυτόματα `mvn verify`, χτίζει και δημοσιεύει το Docker image στο GitHub Container Registry (`ghcr.io/tlkcexe/escapehub`) και δημιουργεί το αντίστοιχο GitHub Release με το `.jar` της εφαρμογής.
 
 ## Τεκμηρίωση
 
